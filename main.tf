@@ -40,6 +40,10 @@ module "gce-project1" {
   ssh_user  = var.ssh_user
   ssh_pub_key_file = var.ssh_pub_key_file
 
+  providers = {
+    google = google.project1  
+  }
+
 }
 
 
@@ -67,6 +71,10 @@ source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//mod
   labels    = var.labels
   ssh_user  = var.ssh_user
   ssh_pub_key_file = var.ssh_pub_key_file
+
+  providers = {
+    google = google.project2  
+  } 
 }
 
 
