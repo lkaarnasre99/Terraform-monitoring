@@ -11,7 +11,7 @@ terraform {
 
 # modules/monitoring/main.tf
 resource "google_monitoring_group" "demo_group" {
-  provider = google.monitoring_project
+  provider = google.project1
   
   display_name = "DemoGroup"
   filter       = <<-EOT
