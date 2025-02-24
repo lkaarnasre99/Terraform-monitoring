@@ -1,2 +1,2 @@
-bucket = "tf-playground-s-11-3b55ad7a-state"
+bucket = "tf-qwiklabs-gcp-02-00d1855c0371-state"
 prefix = "terraform/state"

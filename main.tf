@@ -21,8 +21,8 @@ module "gce-project1" {
   source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//modules/compute"
   instance_name   = var.instance_name_1
   project_id      = var.project_id_1
-  region          = var.region
-  zone            = var.zone
+  region          = var.region-1
+  zone            = var.zone-1
   machine_type    = var.machine_type
   boot_disk_image = var.boot_disk_image
   install_lamp    = var.install_lamp
@@ -45,10 +45,12 @@ module "gce-project1" {
 
 module "gce-project2" {
 
-instance_name   = var.instance_name_2
+source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//modules/compute"
+
+  instance_name   = var.instance_name_2
   project_id      = var.project_id_2
-  region          = var.region
-  zone            = var.zone
+  region          = var.region-2
+  zone            = var.zone-2
   machine_type    = var.machine_type
   boot_disk_image = var.boot_disk_image
   install_lamp    = var.install_lamp
@@ -72,8 +74,7 @@ instance_name   = var.instance_name_2
 
 module "monitoring-alerts" {
    source = "./modules/monitoring"
-
    monitoring_project_id = var.project_id_1
-   monitored_project_ids = [var.project_id_1, var.project_id_2]
+   monitored_project_ids = [var.project_id_1, var.project_id_2] 
   
 }

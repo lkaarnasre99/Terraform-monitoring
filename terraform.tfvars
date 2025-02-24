@@ -1,14 +1,16 @@
 # Project settings
-project_id_1 = "playground-s-11-3b55ad7a"
-project_id_2 = ""
+project_id_1 = "qwiklabs-gcp-02-00d1855c0371"
+project_id_2 = "qwiklabs-gcp-01-e9a7bd8a7a47"
 instance_name_1 = "instance-1"
 instance_name_2 = "instance-2"
 
-region     = "us-central1"
-zone       = "us-central1-a"
+region-1     = "us-east1"
+zone-1       = "us-east1-a"
+
+region-2   = "us-central1"
+zone-2    = "us-central1-b"
 
 # VM settings
-instance_name = "instance-1"
 machine_type  = "e2-medium"
 boot_disk_image = "debian-cloud/debian-12"
 install_lamp = false

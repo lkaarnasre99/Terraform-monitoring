@@ -9,15 +9,29 @@ variable "project_id_2" {
   type = string
 }
 
-variable "region" {
+variable "region-1" {
   description = "The region to deploy resources"
   type        = string
 }
 
-variable "zone" {
+variable "zone-1" {
   description = "The zone to deploy resources"
   type        = string
 }
+ 
+ variable "region-2" {
+  description = "The region to deploy resources"
+  type        = string
+   
+ }
+
+ variable "zone-2" {
+  description = "The zone to deploy resources"
+  type        = string
+   
+ }
+
+
 
 # VM variables
 variable "instance_name_1" {
@@ -25,7 +39,7 @@ variable "instance_name_1" {
   type        = string
 }
 
-variable "instance_name_2 {
+variable "instance_name_2" {
   description = "The name of the VM instance-2 in project-2"
   type = string
 }
