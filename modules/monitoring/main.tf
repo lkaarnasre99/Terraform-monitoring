@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = ">= 4.0.0"  # adjust version as needed
+    }
+  }
+}
+
+
 
 # modules/monitoring/main.tf
 resource "google_monitoring_group" "demo_group" {
