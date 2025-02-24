@@ -47,7 +47,7 @@ module "gce-project1" {
 }
 
 
-module "gce-project2" {
+/*module "gce-project2" {
 
 source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//modules/compute"
 
@@ -75,7 +75,7 @@ source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//mod
   providers = {
     google = google.project2  
   } 
-}
+}*/
 
 
 
