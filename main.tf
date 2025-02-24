@@ -12,7 +12,7 @@ provider "google" {
 
 module "gce" {
 
-  source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git"
+  source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//modules/compute"
   instance_name   = var.instance_name
   project_id      = var.project_id
   region          = var.region
