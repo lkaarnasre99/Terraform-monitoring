@@ -1,5 +1,9 @@
 # Project settings
-project_id = "playground-s-11-3b55ad7a"
+project_id_1 = "playground-s-11-3b55ad7a"
+project_id_2 = ""
+instance_name_1 = "instance-1"
+instance_name_2 = "instance-2"
+
 region     = "us-central1"
 zone       = "us-central1-a"
 

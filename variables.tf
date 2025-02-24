@@ -1,7 +1,12 @@
 # Project variables
-variable "project_id" {
-  description = "The GCP project ID"
+variable "project_id_1" {
+  description = "The GCP project ID -1 which is monitoring & monitored project"
   type        = string
+}
+
+variable "project_id_2" {
+  description = "The GCP project ID -2 which is monitored project"
+  type = string
 }
 
 variable "region" {
@@ -15,9 +20,14 @@ variable "zone" {
 }
 
 # VM variables
-variable "instance_name" {
-  description = "The name of the VM instance"
+variable "instance_name_1" {
+  description = "The name of the VM instance-1 in project-1"
   type        = string
+}
+
+variable "instance_name_2 {
+  description = "The name of the VM instance-2 in project-2"
+  type = string
 }
 
 variable "machine_type" {
