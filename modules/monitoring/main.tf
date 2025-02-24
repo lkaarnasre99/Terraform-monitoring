@@ -14,7 +14,6 @@ resource "google_monitoring_group" "demo_group" {
   display_name = "DemoGroup"
   filter       = <<-EOT
     resource.type = "gce_instance" AND 
-    resource.display_name=has_substring("instance") AND 
     (resource.project_id = "${join("\" OR resource.project_id = \"", var.monitored_project_ids)}")
   EOT
 }
