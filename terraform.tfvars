@@ -1,7 +1,7 @@
 # Project settings
 project_id = "playground-s-11-3b55ad7a"
 region     = "us-central1"
-zone       = "us-central1-a""
+zone       = "us-central1-a"
 
 # VM settings
 instance_name = "instance-1"
