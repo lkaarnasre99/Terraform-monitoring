@@ -5,7 +5,7 @@ instance_name_1 = "instance-1"
 instance_name_2 = "instance-2"
 
 region-1     = "us-east1"
-zone-1       = "us-east1-a"
+zone-1       = "us-east1-b"
 
 region-2   = "us-central1"
 zone-2    = "us-central1-b"
