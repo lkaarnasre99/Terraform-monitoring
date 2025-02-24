@@ -11,15 +11,14 @@ terraform {
 
 # modules/monitoring/main.tf
 resource "google_monitoring_group" "demo_group" {
-  #provider = google.project1
-  
   display_name = "DemoGroup"
   filter       = <<-EOT
     resource.type = "gce_instance" AND 
-    metadata.name=has_substring("instance") AND 
-    (${join(" OR ", [for project_id in var.monitored_project_ids : "project = \"${project_id}\""])})
+    displayName=has_substring("instance") AND 
+    (project = "${join("\" OR project = \"", var.monitored_project_ids)}")
   EOT
 }
+
 
 resource "google_monitoring_uptime_check_config" "demo_group_check" {
   display_name = "DemoGroup uptime check"
