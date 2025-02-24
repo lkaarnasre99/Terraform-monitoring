@@ -1,0 +1,31 @@
+steps:
+# Initialize Terraform
+- name: 'hashicorp/terraform:1.5.7'
+  id: 'tf-init'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+    terraform init -backend-config=backend.hcl
+
+# Validate Terraform configuration
+- name: 'hashicorp/terraform:1.5.7'
+  id: 'tf-validate'
+  args: ['validate']
+
+# Plan Terraform changes
+- name: 'hashicorp/terraform:1.5.7'
+  id: 'tf-plan'
+  args: ['plan', '-var-file=terraform.tfvars', '-out=tfplan']
+
+# Apply Terraform changes
+- name: 'hashicorp/terraform:1.5.7'
+  id: 'tf-apply'
+  args: ['apply', '-auto-approve', 'tfplan']
+
+# Set timeout for the build
+timeout: '1800s'  # 30 minutes
+
+# Configure required permissions for the Cloud Build service account
+options:
+  logging: CLOUD_LOGGING_ONLY
