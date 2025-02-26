@@ -12,7 +12,7 @@ terraform {
 # modules/monitoring/main.tf
 resource "google_monitoring_group" "demo_group" {
   display_name = "DemoGroup"
-  filter       = "resource.type = \"gce_instance\" AND resource.metadata.name =~ \".*instance.*\""
+  filter       = "resource.type = \"gce_instance\" AND metadata.name:instance"
 }
 
 resource "google_monitoring_uptime_check_config" "demo_group_check" {
