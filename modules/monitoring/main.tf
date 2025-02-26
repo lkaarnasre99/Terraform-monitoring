@@ -8,30 +8,12 @@ terraform {
 }
 
 
-
-# First, set up cross-project monitoring
-resource "google_monitoring_monitored_project" "other_projects" {
-  for_each = {
-    for idx, project_id in var.monitored_project_ids : 
-    project_id => project_id 
-    if project_id != var.monitored_project_ids[0]
-  }
-  
-  metrics_scope = "locations/global/metricsScopes/${var.monitored_project_ids[0]}"
-  name          = each.value
-}
-
 # Then create the monitoring group
+# modules/monitoring/main.tf
 resource "google_monitoring_group" "demo_group" {
   display_name = "DemoGroup"
-  filter       = <<-EOT
-    resource.type = "gce_instance" AND 
-    (resource.labels.project_id = "${join("\" OR resource.labels.project_id = \"", var.monitored_project_ids)}")
-  EOT
-  
-  depends_on = [google_monitoring_monitored_project.other_projects]
+  filter       = "resource.type = \"gce_instance\" AND resource.metadata.name =~ \".*instance.*\""
 }
-
 
 resource "google_monitoring_uptime_check_config" "demo_group_check" {
   display_name = "DemoGroup uptime check"

@@ -16,7 +16,7 @@ provider "google" {
 }
 
 
-module "monitoring-alerts" {
+/*module "monitoring-alerts" {
    source = "./modules/monitoring"
    monitoring_project_id = var.project_id_1
    monitored_project_ids = [var.project_id_1, var.project_id_2] 
@@ -24,7 +24,7 @@ module "monitoring-alerts" {
      google = google.project1 
    }
   
-}
+}*/
 
 /*
 module "gce-project1" {
@@ -60,7 +60,7 @@ module "gce-project1" {
 
 #create instance 2
 
-/*module "gce-project2" {
+module "gce-project2" {
 
 source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//modules/compute"
 
@@ -88,7 +88,7 @@ source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//mod
   providers = {
     google = google.project2  
   } 
-}*/
+}
 
 
 

@@ -1,13 +1,13 @@
 # Project settings
-project_id_1 = "qwiklabs-gcp-02-47d11ecedb53"
-project_id_2 = "qwiklabs-gcp-02-4d49ad3802bb"
+project_id_1 = "qwiklabs-gcp-00-d0b5ca328871"
+project_id_2 = "qwiklabs-gcp-00-907d04ef5835"
 
 
 instance_name_1 = "instance-1"
 instance_name_2 = "instance-2"
 
-region-1     = "us-east1"
-zone-1       = "us-east1-b"
+region-1     = "europe-west1"
+zone-1       = "europe-west1-d"
 
 region-2   = "us-east4"
 zone-2    = "us-east4-b"
