@@ -6,11 +6,12 @@ project_id_2 = "qwiklabs-gcp-00-907d04ef5835"
 instance_name_1 = "instance-1"
 instance_name_2 = "instance-2"
 
-region-1     = "europe-west1"
-zone-1       = "europe-west1-d"
+region-1   = "us-east4"
+zone-1     = "us-east4-b"
 
-region-2   = "us-east4"
-zone-2    = "us-east4-b"
+region-2     = "europe-west1"
+zone-2       = "europe-west1-d"
+
 
 # VM settings
 machine_type  = "e2-medium"
