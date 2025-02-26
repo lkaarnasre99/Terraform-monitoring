@@ -16,6 +16,17 @@ provider "google" {
 }
 
 
+module "monitoring-alerts" {
+   source = "./modules/monitoring"
+   monitoring_project_id = var.project_id_1
+   monitored_project_ids = [var.project_id_1, var.project_id_2] 
+   providers = {
+     google = google.project1 
+   }
+  
+}
+
+/*
 module "gce-project1" {
 
   source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//modules/compute"
@@ -44,10 +55,10 @@ module "gce-project1" {
     google = google.project1  
   }
 
-}
+}*/
 
 
-/*module "gce-project2" {
+module "gce-project2" {
 
 source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//modules/compute"
 
@@ -75,17 +86,9 @@ source = "git::https://github.com/lkaarnasre99/Terraform-Compute-Engine.git//mod
   providers = {
     google = google.project2  
   } 
-}*/
-
-
-
-
-module "monitoring-alerts" {
-   source = "./modules/monitoring"
-   monitoring_project_id = var.project_id_1
-   monitored_project_ids = [var.project_id_1, var.project_id_2] 
-   providers = {
-     google = google.project1 
-   }
-  
 }
+
+
+
+
+
