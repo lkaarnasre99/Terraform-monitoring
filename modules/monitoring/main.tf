@@ -25,16 +25,16 @@ resource "google_monitoring_uptime_check_config" "demo_group_check" {
   }
 
   resource_group {
-    group_id = google_monitoring_group.demo_group.name
+    group_id = google_monitoring_group.demo_group.id
+    resource_type = "INSTANCE"  # This was missing
   }
 
   selected_regions = [
     "USA",
-    "EUROPE",
-    "ASIA_PACIFIC"
+    "EUROPE"
+ 
   ]
 }
-
 
 resource "google_monitoring_alert_policy" "uptime_alert" {
   display_name = "Uptime Check Policy"
