@@ -51,7 +51,7 @@ resource "google_monitoring_alert_policy" "uptime_alert" {
         "metric.label.check_id = \"${google_monitoring_uptime_check_config.demo_group_check.uptime_check_id}\""
       ])
       
-      duration = "60s"
+      duration = "120s"
       
       trigger {
         count = 1
