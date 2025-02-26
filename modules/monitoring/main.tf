@@ -14,7 +14,7 @@ resource "google_monitoring_group" "demo_group" {
   display_name = "DemoGroup"
   filter       = <<-EOT
     resource.type = "gce_instance" AND 
-    (project_id = "${join("\" OR project_id = \"", var.monitored_project_ids)}")
+    (project_id = "${join("\" OR resources.labels.project_id = \"", var.monitored_project_ids)}")
   EOT
 }
 
