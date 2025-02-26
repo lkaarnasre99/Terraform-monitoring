@@ -14,10 +14,9 @@ resource "google_monitoring_group" "demo_group" {
   display_name = "DemoGroup"
   filter       = <<-EOT
     resource.type = "gce_instance" AND 
-    (project_id = "${join("\" OR resources.labels.project_id = \"", var.monitored_project_ids)}")
+    (resource.labels.project_id = "${join("\" OR resource.labels.project_id = \"", var.monitored_project_ids)}")
   EOT
 }
-
 resource "google_monitoring_uptime_check_config" "demo_group_check" {
   display_name = "DemoGroup uptime check"
   timeout      = "60s"   # Default timeout
