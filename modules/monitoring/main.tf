@@ -7,12 +7,12 @@ terraform {
   }
 }
 
-# Set up metric scope - allow monitoring_project_id to access metrics from all monitored projects
-resource "google_monitoring_metric_scope" "project_scope" {
+# Set up metrics scope using google_monitoring_monitored_project
+resource "google_monitoring_monitored_project" "project_scope" {
   for_each = toset([for id in var.monitored_project_ids : id if id != var.monitoring_project_id])
   
-  scoping_project = var.monitoring_project_id
-  monitored_project = each.value
+  metrics_scope = var.monitoring_project_id
+  name          = each.value
 }
 
 # Create the monitoring group in P2
@@ -24,7 +24,7 @@ resource "google_monitoring_group" "demo_group" {
 
 # Create uptime check for TCP port 22 on instances in the monitoring group
 resource "google_monitoring_uptime_check_config" "demo_group_check" {
-  display_name = "DemoGroup uptime check"
+  display_name = "TCP Port 22 Uptime Check"
   project      = var.monitoring_project_id
   timeout      = "60s"
   period       = "300s"  # 5 minute check frequency
@@ -46,7 +46,7 @@ resource "google_monitoring_uptime_check_config" "demo_group_check" {
 
 # Create alert policy based on the uptime check
 resource "google_monitoring_alert_policy" "uptime_alert" {
-  display_name = "Uptime Check Policy"
+  display_name = "SSH Port 22 Uptime Alert"
   project      = var.monitoring_project_id
   enabled      = true
   combiner     = "OR"
